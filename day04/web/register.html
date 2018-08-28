@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./libs/httpclient.js"></script>
+</head>
+<body>
+    <input type="text" name="" id="username">
+    <input type="password" name="" id="password">
+    <input type="text" name="" id="nickname">
+    <input type="button" value="register" id="btn_reg">
+
+    <script>
+        $(function(){
+            $('#btn_reg').click(function(){
+                http.post({
+                    url: 'register', 
+                    data: {username: $('#username').val(), password: $('#password').val(), nickname: $('#nickname').val()}, 
+                    cb: function(res){
+                        if(res.status){
+                            window.location.href = 'login.html';
+                        } else {
+                            window.alert('register fail');
+                        }
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

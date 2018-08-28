@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./libs/httpclient.js"></script>
+</head>
+<body>
+    <h1 id="username"></h1>
+    <input type="text" name="" id="proname">
+    <input type="text" name="" id="price">
+    <input type="file" name="proimg" id="proimg">
+    <input type="button" value="save" id="btn_save">
+
+    <script>
+        $(function(){
+            $('#btn_save').click(function(){
+                var myform = new FormData();
+                myform.append('proname', $('#proname').val())
+                myform.append('price', $('#price').val())
+                myform.append('proimg', $('#proimg')[0].files[0]);
+                http.upload({
+                    url: 'addproduct', 
+                    data: myform, 
+                    cb:function(res){
+                        console.log(res)
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

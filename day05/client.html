@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="login_content">
+        <input type="text" name="" id="nickname">
+        <input type="button" value="login" id="btn_login">
+    </div>
+    <div id="send_content" style="display: none;">
+        <input type="text" name="" id="message">
+        <input type="button" value="send" id="btn_send">
+    </div>
+    <div id="message_content">
+    </div>
+    <script>
+        $(function(){
+            var wss;
+            $('#btn_login').click(function(){
+                wss = new WebSocket('ws://10.3.133.151:88');
+                wss.onopen = function(){
+                    $('#login_content').hide();
+                    $('#send_content').show();
+                }
+                wss.onclose = function(){
+                    $('#login_content').show();
+                    $('#send_content').hide();
+                }
+
+                wss.onmessage = function(_message){
+                    console.log(_message)
+                    var messObj = JSON.parse(_message.data);
+                    $(`<p>${messObj.nickname} ${messObj.time}：${messObj.mess}</p>`).appendTo('#message_content');
+                }
+            })
+
+            $('#btn_send').click(function(){
+                var nickname = $('#nickname').val();
+                var date = new Date();
+                var h = date.getHours();
+                var m = date.getMinutes();
+                var message = {nickname: nickname, time: `${h}:${m}`, mess: $('#message').val()};
+                wss.send(JSON.stringify(message));
+            })
+        })
+    </script>
+</body>
+</html>
