@@ -37,7 +37,7 @@
         
         // 结合上面的来看，每次exports的是重新指向另一个引用，但是module.exports里面没有改变
 
-        Q = {
+        module.exports = {
             aaa: function () {}
         }
       
