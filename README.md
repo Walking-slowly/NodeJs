@@ -6,7 +6,7 @@
 
 1. exports和module.exports
 
-    > 初学node有些分不清exports和module.exports的区别，既然存在exports，为什么又要存在module.exports，自己也手动试过，无论用哪种方式，引入进来的都是一样的，然后找了很多文档，终于有了自己的理解
+    > 初学node有些分不清exports和module.exports的区别，既然存在exports，为什么又要存在module.exports，自己也手动试过，无论用哪种方式，感觉引入进来的都是一样的，然后找了很多文档，终于有了自己的理解
 
     ```js
         
