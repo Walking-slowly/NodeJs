@@ -65,7 +65,7 @@
             callback：  开启监听后触发的回调函数。当服务器开启监听后会触发listening事件，可以通过监听listening事件来代替callback回调函数。
         */
 
-        server.listen(3000, 127.0.0.1)
+        server.listen(3000, '127.0.0.1')
     ```
 
 #### 第三方模块
