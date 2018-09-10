@@ -127,7 +127,7 @@
 
 1. body-parser
 
-    > 前端发送GET和POST（至于其他请求，不了解），如果是GET请求，在node中拿到数据是需要到**requset.query**下获取，如果是POST请求则需要到**requset.body**，但是如果在express框架中默认是不处理body中的信息，所以需要引入**body-parser**模块，如果是用的http模块，则需要自己手动收集数据
+    > 前端发送GET和POST，如果是GET请求，在node中拿到数据是需要到**requset.query**下获取，如果是POST请求则需要到**requset.body**，但是如果在express框架中默认是不处理body中的信息，所以需要引入**body-parser**模块，如果是用的http模块，则需要自己手动收集数据
 
     ```js
         const http = require('http');
