@@ -89,7 +89,7 @@
                 query: 'name=zhangsan&age=18',  //查询参数部分
                 pathname: '/byte/',			 //目录部分
                 path: '/byte/?name=zhangsan&age=18',//目录+参数部分
-                href: 'http://calc.gongjuji.net/byte/?name=zhangsan&age=18#one#two'  //最初解析的完整的网址。双方的协议和
+                href: 'http://calc.gongjuji.net/byte/?name=zhangsan&age=18#one#two'  //最初解析的完整的网址。双方的协议和主机是小写
             }
         */
     ```
