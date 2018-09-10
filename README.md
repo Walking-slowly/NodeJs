@@ -69,7 +69,57 @@
     ```
 
 2. url
-    > 处理客户端请求过来的URL
+    > 处理客户端请求过来的URL,url模块下有几个方法，**url.parse(url)**把一段url解析拆分成url对象，**url.format(urlobj)**是把url对象解析成一段完整的url，**url.resolve(from, to)**合并路径
+
+    ##### url.parse()
+    ```js
+        url.parse("http://user:pass@host.com:8080/p/a/t/h?query=string#hash")
+
+        /*
+            返回值：
+            {
+                protocol: 'http:',
+                slashes: true,
+                auth: 'user:pass',
+                host: 'host.com:8080',
+                port: '8080',
+                hostname: 'host.com',
+                hash: '#hash',
+                search: '?query=string',
+                query: 'query=string',
+                pathname: '/p/a/t/h',
+                path: '/p/a/t/h?query=string',
+                href: 'http://user:pass@host.com:8080/p/a/t/h?query=string#hash'
+            }
+        */
+    ```
+    ##### url.format()
+    ```js
+        url.format({
+            protocol:"http:",
+            host:"182.163.0:60",
+            port:"60"
+        });
+
+        /*
+            返回值：
+            'http://182.163.0:60'
+        */
+    ```
+
+    ##### url.resolve()
+    ```js
+        url.resolve("http://whitemu.com/aaa/bbb","gulu")
+        url.resolve("http://whitemu.com/aaa/bbb","/gulu")
+        url.resolve("http://whitemu.com/aaa/bbb","/gulu")
+
+        /*
+            返回值：
+            'http://whitemu.com/aaa/gulu'
+            'http://whitemu.com/gulu'
+            'http://whitemu.com/aaa/gulu'
+        */
+    ```
     
 
 
