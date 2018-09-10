@@ -73,23 +73,23 @@
 
     ##### url.parse()
     ```js
-        url.parse("http://user:pass@host.com:8080/p/a/t/h?query=string#hash")
+        url.parse("http://calc.gongjuji.net/byte/?name=zhangsan&age=18#one#two")
 
         /*
             返回值：
             {
-                protocol: 'http:',
-                slashes: true,
-                auth: 'user:pass',
-                host: 'host.com:8080',
-                port: '8080',
-                hostname: 'host.com',
-                hash: '#hash',
-                search: '?query=string',
-                query: 'query=string',
-                pathname: '/p/a/t/h',
-                path: '/p/a/t/h?query=string',
-                href: 'http://user:pass@host.com:8080/p/a/t/h?query=string#hash'
+                protocol: 'http:',    //使用协议
+                slashes: true,        //
+                auth: null,		   // 验证信息
+                host: 'calc.gongjuji.net', //全小写的主机部分的URL，包括端口信息。
+                port: null,				//端口
+                hostname: 'calc.gongjuji.net',//小写的主机部分的主机
+                hash: '#one#two',			   //页面锚点参数部分
+                search: '?name=zhangsan&age=18',//查询参数部分，带？
+                query: 'name=zhangsan&age=18',  //查询参数部分
+                pathname: '/byte/',			 //目录部分
+                path: '/byte/?name=zhangsan&age=18',//目录+参数部分
+                href: 'http://calc.gongjuji.net/byte/?name=zhangsan&age=18#one#two'  //最初解析的完整的网址。双方的协议和
             }
         */
     ```
